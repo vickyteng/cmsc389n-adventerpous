@@ -3,7 +3,7 @@
 body {
   margin: 0;
   font-size: 18px;
-  padding: 0;
+  padding: 0px 0px -200px 20px;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -20,14 +20,29 @@ the title of the home page
 h3 {
   font-size: 50px;
   font-weight: 800;
-  padding-top: 150px;
-  color: #800080;
+  padding: 150px 0px;
+  margin-bottom: -200px;
+  color: white;
 }
 div.titular{
     text-align: center;
-
+    background-color:#800080; 
 }
 
+div.container-fluid {
+  padding-top: 20px;
+}
+
+.container-fluid h2{
+   padding: 20px 0px 20px 12px;
+  
+}
+
+/*for scooting the event type filter*/
+.henlo {
+  padding-left: 12px;
+  padding-bottom: 20px;
+}
 
 /* -------------------------------------------------- */
 /* Buttons */
@@ -42,10 +57,27 @@ a.button {
   transition: ease all .3s;
   align-items: center;
 }
+
 a.button:hover {
   -webkit-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.5);
   box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.5);
+}
+
+/*submit button size on info page*/
+.custom {
+  width: 100px !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #FF69B4;
+    border-color: #FF69B4;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #FF69B4;
+    background-color: white;
+    border-color: #FF69B4; 
 }
 
 /* -------------------------------------------------- */
@@ -53,8 +85,8 @@ a.button:hover {
 /* -------------------------------------------------- */
 div.container{
   text-align: center;
-  padding-bottom: 400px;
 }
+
 section.hero {
   width: 100%;
   height: 100vh;
@@ -62,6 +94,7 @@ section.hero {
   text-align: center;
   align-items: center;
 }
+
 section.hero h1 {
   text-align: center;
   padding-left: 375px;

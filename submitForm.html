@@ -9,8 +9,8 @@
       <script src="submitForm.js"></script>
     </head>
     <body>
-      <h2>Event Info Submission</h2>
         <div class="container-fluid">
+            <h2>Event Info Submission</h2>
             <form action="viewEvents.html" method="post" class="form-horizontal">  <!-- Try class="form-inline" or class="form-horizontal" Reduce window size-->
                 <div class="form-group">
                     <label for="eventName" class="control-label col-sm-3">Event Name:</label>
@@ -36,10 +36,24 @@
                         <input type="text" name = "location"   id="location" class="form-control input-md" autofocus>
                     </div>
                 </div>
+
+                <div class="form-group henlo">
+                    <label for="type">What type of event is this? (hold shift to select more than one):</label>
+                    <select multiple class="form-control" id="type">
+                    <option>Athletic</option>
+                    <option>Fundraiser</option>
+                    <option>Guest Speaker</option> 
+                    <option>GBM</option>
+                    <option>Social</option>
+                    <option>Volunteering</option> 
+                    <option>Other</option>
+                  </select>
+                </div>
+
                 <br>
                 <div class="form-group">
                     <div class="col-sm-3 col-sm-push-3">
-                        <input type="submit" value="Submit" id="submit" class="form-control">
+                        <input type="submit" value="Submit" id="submit" class="btn btn-primary custom">
                     </div>
                 </div>
 
