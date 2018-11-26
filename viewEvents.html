@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+    <head>
+      <link href="https://fonts.googleapis.com/css?family=Poppins:400,700,800" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/style.css" type="text/css">
+    </head>
+    <body>
+      <h2>Events</h3>
+      <div id="eventList"></div>
+
+        <script>
+        var MongoClient = require('mongodb').MongoClient;
+        var url = "mongodb://localhost:27017/";
+
+        MongoClient.connect(url, function(err, db) {
+          if (err) throw err;
+          var dbo = db.db("mydb");
+          var query = {};
+          dbo.collection("customers").find(query).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            processResult(result);
+            db.close();
+          });
+        });
+
+        document.getElementById("eventList").innerHTML += "hi";
+
+        function processResult(result) {
+
+          let body = "";
+          result.forEach(function(elem) {
+            body += elem.eventName + " " + elem.time + " " + elem.location + " " + elem.date + "<br>";
+          });
+
+          document.getElementById("eventList").innerHTML += body;
+          document.getElementById("eventList").innerHTML += "hi2";
+        }
+
+        </script>
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      </body>
+
+</html>
