@@ -1,5 +1,3 @@
-
-
 body {
   margin: 0;
   font-size: 18px;
@@ -26,7 +24,7 @@ h3 {
 }
 div.titular{
     text-align: center;
-    background-color:#800080; 
+    background-color:#800080;
 }
 
 div.container-fluid {
@@ -35,7 +33,7 @@ div.container-fluid {
 
 .container-fluid h2{
    padding: 20px 0px 20px 12px;
-  
+
 }
 
 /*for scooting the event type filter*/
@@ -77,7 +75,7 @@ a.button:hover {
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #FF69B4;
     background-color: white;
-    border-color: #FF69B4; 
+    border-color: #FF69B4;
 }
 
 /* -------------------------------------------------- */
