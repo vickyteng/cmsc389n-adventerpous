@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var mongoose = require('mongoose');
 var dotenv = require('dotenv');
+var ejs = require('ejs');
 var Event = require('./models/Event');
 
 // Load envirorment variables
@@ -23,6 +24,9 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.set('view engine', 'ejs');
+
+// redirect static files, i.e. css
 app.use(express.static(path.join(__dirname, "static")));
 
 app.get('/', function(req, res) {
@@ -38,28 +42,40 @@ app.post('/viewEvents.html', function(req, res) {
     var time = JSON.stringify(req.body['time']);
     var location = JSON.stringify(req.body['location']);
     var date = JSON.stringify(req.body['date']);
+    var type = JSON.stringify(req.body['types[]']);
 
     var event = new Event({
         name: eventName,
         time: time,
         location: location,
-        date: date
+        date: date,
+        eventType: type
     });
 
     // Save movie to database
     event.save(function(err) {
         if (err) throw err;
 
-        console.log("Event saved");
-
+        console.log(`${eventName} saved`);
     });
 
-    res.sendFile(path.join(__dirname + '/viewEvents.html'));
+// currently doesn't display most recent saved event
+    Event.find({}, function(err, events) {
+        if (err) throw err;
+
+        res.render('viewEvents', {events: events});
+    });
 });
 
 app.get('/viewEvents.html', function(req, res) {
+    Event.find({}, function(err, events) {
+        if (err) throw err;
 
-})
+        console.log("PROCESSING VIEW EVENTS PAGE...");
+        //return res.json(events);
+        res.render('viewEvents', {events: events});
+   });
+});
 
 function main() {
     document.getElementById("submit").onclick = submitEvent;

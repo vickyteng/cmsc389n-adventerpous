@@ -2,20 +2,19 @@ var mongoose = require('mongoose');
 
 var eventSchema = new mongoose.Schema({
     name: {
-        type: String,
-        required: true
+        type: String
     },
     date: {
-        type: String,
-        required: true
+        type: String
     },
     location: {
-        type: String,
-        required: true
+        type: String
     },
     time: {
-        type: String,
-        required: true
+        type: String
+    },
+    eventType: {
+        type: String
     }
 });
 

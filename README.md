@@ -18,3 +18,4 @@ CMSC389N Group Project
 ```
     node index.js
 ```
+5. Browse to [http://localhost:3000/](http://localhost:3000/)
