@@ -3,7 +3,6 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var mongoose = require('mongoose');
 var dotenv = require('dotenv');
-var eventInfo = require("./events");
 var Event = require('./models/Event');
 
 // Load envirorment variables
