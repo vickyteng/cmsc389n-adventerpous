@@ -1,0 +1,27 @@
+{
+  "name": "cmsc389n-adventerpous",
+  "version": "1.0.0",
+  "description": "CMSC389N Group Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vickyteng/cmsc389n-adventerpous.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vickyteng/cmsc389n-adventerpous/issues"
+  },
+  "homepage": "https://github.com/vickyteng/cmsc389n-adventerpous#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.13",
+    "path": "^0.12.7"
+  }
+}
