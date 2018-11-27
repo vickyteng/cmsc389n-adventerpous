@@ -35,8 +35,9 @@ function validateForm() {
     } else {
         var valuesProvided = "Do you want to submit the following event?\n";
         valuesProvided += "Name: " + name + "\n";
-        valuesProvided += "Account: " + account + "\n";
-        valuesProvided += "Payment: " + payment + "\n";
+        valuesProvided += "Date: " + date + "\n";
+        valuesProvided += "Time: " + time + "\n";
+         valuesProvided += "Location: " + location+ "\n";
         /* We could write the following as return window.confirm(valuesProvided) */
         if (window.confirm(valuesProvided))
             return true;
