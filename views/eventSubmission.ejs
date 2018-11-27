@@ -3,6 +3,7 @@
     <head>
 		<title>Event Submitted</title>
         <link rel="stylesheet" href="/css/style.css" type="text/css">
+        <script src="validation.js"></script>
 	</head>
 
 	<body>
@@ -26,7 +27,9 @@
                       <td><%- event.date.replace('\"', '').replace('\"', '')  %></td>
                       <td><%- event.location.replace('\"', '').replace('\"', '')  %></td>
                       <td><%- event.time.replace('\"', '').replace('\"', '')  %></td>
-                      <td><%- event.eventType %></td>
+                      <td><%- if (event.eventType) { %>
+                          <%- event.eventType.replace('\"', '').replace('\"', '').replace('[', '').replace(']', '') %></td>
+                          <% } %>
                     </tr>
               </table>
               <!-- </ul> -->

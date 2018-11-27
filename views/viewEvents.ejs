@@ -33,7 +33,11 @@
                 <td><%- events[i].date.replace('\"', '').replace('\"', '')  %></td>
                 <td><%- events[i].location.replace('\"', '').replace('\"', '')  %></td>
                 <td><%- events[i].time.replace('\"', '').replace('\"', '')  %></td>
-                <td><%- events[i].eventType %></td>
+                <td><% if (typeof(events[i].eventType) != 'undefined') {%>
+                    <%- events[i].eventType.replace(/\"/g, '').replace('[', '').replace(']', '') %>
+                    <% } %>
+                </td>
+
               </tr>
             <% } %>
 
