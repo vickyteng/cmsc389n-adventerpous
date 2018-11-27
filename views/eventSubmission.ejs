@@ -27,7 +27,10 @@
                       <td><%- event.date.replace('\"', '').replace('\"', '')  %></td>
                       <td><%- event.location.replace('\"', '').replace('\"', '')  %></td>
                       <td><%- event.time.replace('\"', '').replace('\"', '')  %></td>
-                  
+                      <td><% if (typeof(event.eventType) != 'undefined') {%>
+                          <%- event.eventType.replace(/\"/g, '').replace('[', '').replace(']', '') %>
+                          <% } %>
+                      </td>
                     </tr>
               </table>
               <!-- </ul> -->
