@@ -65,6 +65,7 @@ a.button:hover {
 /*submit button size on info page*/
 .custom {
   width: 100px !important;
+  color:white;
 }
 
 .btn-primary {
@@ -76,6 +77,17 @@ a.button:hover {
     color: #FF69B4;
     background-color: white;
     border-color: #FF69B4;
+}
+
+.btn-home {
+    color: #fff;
+    background-color: #34E0EC;
+    border-color: #34E0EC;
+}
+.btn-home:hover, .btn-home:focus, .btn-home:active, .btn-home.active {
+    color: #34E0EC;
+    background-color: white;
+    border-color: #34E0EC;
 }
 
 /* -------------------------------------------------- */
@@ -127,4 +139,8 @@ section.hero .highlight {
 td {
   padding-left: 20px;
   padding-right: 20px;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
 }

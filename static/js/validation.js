@@ -7,6 +7,7 @@ window.onsubmit=validateForm;
 /* If false the data will not be sent to the server */
 function validateForm() {
 	/* Retrieving the values */
+
     var name = document.getElementById("event").value;
     var clubName = document.getElementById("club").value;
     var date = document.getElementById("date").value;
@@ -15,17 +16,21 @@ function validateForm() {
     
 	/* Validating numeric values */    
 	var invalidMessages = "";
-    if (name == null) {
+    if (name == "") {
         invalidMessages += "Name cannot be blank\n";
     }
-    if (date == null) {
+    if (date == "") {
         invalidMessages += "Date cannot be blank\n";
     }
-    if (time == null) {
+    if (time == "") {
         invalidMessages += "Time cannot be blank\n";
     }
-    if (location == null) {
+    if (location == "") {
         invalidMessages += "Location cannot be blank\n";
+    }
+
+    if (!isValidTime(time)) {
+         invalidMessages += "Enter a valid time\n";
     }
 
     
@@ -35,8 +40,9 @@ function validateForm() {
     } else {
         var valuesProvided = "Do you want to submit the following event?\n";
         valuesProvided += "Name: " + name + "\n";
-        valuesProvided += "Account: " + account + "\n";
-        valuesProvided += "Payment: " + payment + "\n";
+        valuesProvided += "Date: " + date + "\n";
+        valuesProvided += "Time: " + time + "\n";
+         valuesProvided += "Location: " + location+ "\n";
         /* We could write the following as return window.confirm(valuesProvided) */
         if (window.confirm(valuesProvided))
             return true;
@@ -59,3 +65,9 @@ function isAlphaNumeric(str) {
   }
   return true;
 };
+
+function isValidTime(timeInput) {
+        var isValid = RegExp(/^([0-1][0-9]|2[0-3]):([0-5][0-9])$/).test(timeInput);
+
+        return isValid;
+}
