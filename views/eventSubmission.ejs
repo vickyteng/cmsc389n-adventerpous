@@ -15,7 +15,8 @@
               <table id="tablee" class="table table-striped">
                 <thead>
                   <tr>
-                    <th>Name</th>
+                    <th>Event</th>
+                    <th>Host</th>
                     <th>Date</th>
                     <th>Location</th>
                     <th>Time</th>
@@ -24,6 +25,7 @@
                 </thead>
                     <tr>
                       <td><%- event.name.replace('\"', '').replace('\"', '') %></td>
+                      <td><%- event.club.replace('\"', '').replace('\"', '') %></td>
                       <td><%- event.date.replace('\"', '').replace('\"', '')  %></td>
                       <td><%- event.location.replace('\"', '').replace('\"', '')  %></td>
                       <td><%- event.time.replace('\"', '').replace('\"', '')  %></td>

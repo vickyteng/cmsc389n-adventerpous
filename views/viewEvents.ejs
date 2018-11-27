@@ -17,7 +17,8 @@
         <table id="tablee" class="table table-striped">
           <thead>
             <tr>
-              <th>Name</th>
+              <th>Event</th>
+              <th>Host</th>
               <th>Date</th>
               <th>Location</th>
               <th>Time</th>
@@ -30,6 +31,7 @@
             <% for(var i=0; i < events.length; i++) {%>
               <tr>
                 <td><%- events[i].name.replace('\"', '').replace('\"', '') %></td>
+                <td><%- events[i].club.replace('\"', '').replace('\"', '') %></td>
                 <td><%- events[i].date.replace('\"', '').replace('\"', '')  %></td>
                 <td><%- events[i].location.replace('\"', '').replace('\"', '')  %></td>
                 <td><%- events[i].time.replace('\"', '').replace('\"', '')  %></td>
@@ -51,7 +53,6 @@
                     <img id="lol" class="image" src='static/uploads/three.jpg' height="50" width="50"/>
                   <% } %>
                 </td>
-
               </tr>
             <% } %>
 
