@@ -4,6 +4,7 @@ var path = require('path');
 var mongoose = require('mongoose');
 var dotenv = require('dotenv');
 var ejs = require('ejs');
+var fs = require('fs');
 var Event = require('./models/Event');
 
 // Load envirorment variables
@@ -37,24 +38,41 @@ app.get('/submitForm.html', function(req, res) {
     res.sendFile(path.join(__dirname + '/submitForm.html'));
 });
 
-app.get('/eventSubmission.html', function(req, res) {
-    res.sendFile(path.join(__dirname + '/eventSubmission.html'));
-});
-
-app.post('/viewEvents.html', function(req, res) {
+app.post('/eventSubmission.html', function(req, res) {
     var eventName = JSON.stringify(req.body['event']);
     var time = JSON.stringify(req.body['time']);
     var location = JSON.stringify(req.body['location']);
     var date = JSON.stringify(req.body['date']);
     var type = JSON.stringify(req.body['types[]']);
+    var club = JSON.stringify(req.body['club']);
+    var link = JSON.stringify(req.body['link']);
+    var imgPath = JSON.stringify(req.body['image']);
+    var trimmedPath = imgPath.replace('\"', '').replace('\"', '');
+    var contentType;
+    if (imgPath.search('.png') || imgPath.search('.PNG') ) {
+        contentType = 'image/png';
+    } else if (imgPath.search('.jpg') || imgPath.search('.JPG')) {
+        contentType = 'image/jpg';
+    } else if (imgPath.search('.jpeg') || imgPath.search('.JPEG')) {
+        contentType = 'image/jpeg';
+    }
+
+    var fullPath = __dirname + "/static/uploads/" + trimmedPath;
 
     var event = new Event({
         name: eventName,
         time: time,
         location: location,
         date: date,
-        eventType: type
+        eventType: type,
+        club: club,
+        link: link,
+        imagePath: fullPath
     });
+
+// store binary data of image in mongoDB
+    event.image.data = fs.readFileSync(fullPath);
+    event.image.contentType = contentType;
 
     // Save movie to database
     event.save(function(err) {
@@ -63,12 +81,7 @@ app.post('/viewEvents.html', function(req, res) {
         console.log(`${eventName} saved`);
     });
 
-// currently doesn't display most recent saved event
-    Event.find({}, function(err, events) {
-        if (err) throw err;
-
-        res.render('viewEvents', {events: events});
-    });
+    res.render('eventSubmission', {event: event, imagePath: "../uploads/" + trimmedPath});
 });
 
 app.get('/viewEvents.html', function(req, res) {
@@ -85,26 +98,5 @@ function main() {
     document.getElementById("submit").onclick = submitEvent;
 }
 
-function submitEvent() {
-    // Verify valid phone number
-    var eventName = eventInfo.eventName;
-    var time = eventInfo.time;
-    var location = eventInfo.location;
-    var date = eventInfo.date;
-
-    var event = new Event({
-        name: eventName,
-        time: time,
-        location: location,
-        date: date
-    });
-
-    // Save movie to database
-    event.save(function(err) {
-        if (err) throw err;
-
-        console.log("New event entered");
-    });
-}
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));

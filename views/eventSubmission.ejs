@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+		<title>Form Validation</title>
+        <link rel="stylesheet" href="/css/style.css" type="text/css">
+	</head>
+
+	<body>
+        <div id="eventssss">
+            <h1>Event Submitted!</h1>
+            <br>
+            <div id="eventList">
+                <img src="<%- imagePath %>" style="max-height: 300px; max-width: 300px;"/>
+              <table id="tablee" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Time</th>
+                    <th>Event Type</th>
+                  </tr>
+                </thead>
+                    <tr>
+                      <td><%- event.name.replace('\"', '').replace('\"', '') %></td>
+                      <td><%- event.date.replace('\"', '').replace('\"', '')  %></td>
+                      <td><%- event.location.replace('\"', '').replace('\"', '')  %></td>
+                      <td><%- event.time.replace('\"', '').replace('\"', '')  %></td>
+                      <td><%- event.eventType %></td>
+                    </tr>
+              </table>
+              <!-- </ul> -->
+            </div>
+          </div>
+
+	</body>
+</html>

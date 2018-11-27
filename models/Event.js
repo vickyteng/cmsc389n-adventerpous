@@ -15,6 +15,19 @@ var eventSchema = new mongoose.Schema({
     },
     eventType: {
         type: String
+    },
+    club: {
+        type: String
+    },
+    link: {
+        type: String
+    },
+    image: {
+        data: Buffer,
+        contentType: String
+    },
+    imagePath: {
+        type: String
     }
 });
 
