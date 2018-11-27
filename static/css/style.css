@@ -14,18 +14,35 @@ h1, h2, h3, h4, h5, h6, p {
 
 the title of the home page
 */
+.content{
+  background-image: url("mckeldin.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 100%;
+}
 
 h3 {
-  font-size: 50px;
+  font-size: 70px;
   font-weight: 800;
-  padding: 150px 0px;
-  margin-bottom: -200px;
+  text-align: center;
+  vertical-align: middle;
+  padding-bottom: 20px;
+
   color: white;
+  position: absolute;
+  top:420px;
+  left: 540px;
+  transition: ease.3s;
 }
+
+.container{
+  margin-top: 340px;
+  margin-left: 240px;
+}
+
 div.titular{
     text-align: center;
-    background-color:#800080;
-}
+ }
 
 div.container-fluid {
   padding-top: 20px;
