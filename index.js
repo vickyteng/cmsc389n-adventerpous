@@ -37,6 +37,10 @@ app.get('/submitForm.html', function(req, res) {
     res.sendFile(path.join(__dirname + '/submitForm.html'));
 });
 
+app.get('/eventSubmission.html', function(req, res) {
+    res.sendFile(path.join(__dirname + '/eventSubmission.html'));
+});
+
 app.post('/viewEvents.html', function(req, res) {
     var eventName = JSON.stringify(req.body['event']);
     var time = JSON.stringify(req.body['time']);

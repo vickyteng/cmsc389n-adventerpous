@@ -29,6 +29,10 @@ function validateForm() {
         invalidMessages += "Location cannot be blank\n";
     }
 
+    if (!isValidTime(time)) {
+         invalidMessages += "Enter a valid time\n";
+    }
+
     
     if (invalidMessages !== "") {
         alert(invalidMessages);
@@ -61,3 +65,9 @@ function isAlphaNumeric(str) {
   }
   return true;
 };
+
+function isValidTime(timeInput) {
+        var isValid = RegExp(/^([0-1][0-9]|2[0-3]):([0-5][0-9])$/).test(timeInput);
+
+        return isValid;
+}
