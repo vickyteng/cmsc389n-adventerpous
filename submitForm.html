@@ -5,6 +5,16 @@
       <link href="https://fonts.googleapis.com/css?family=Poppins:400,700,800" rel="stylesheet">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <!--  jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+    <!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+      <!-- Bootstrap Date-Picker Plugin -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
       <link rel="stylesheet" href="/css/style.css" type="text/css">
     </head>
     <body>
@@ -17,18 +27,43 @@
                         <input type="text" name = "event"  id="event" class="form-control input-md" autofocus>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="Time" class="control-label col-sm-3">Date</label>
+
+
+                        <div class="row row-list">
+            <div class="col-sm-3">
+                <div class="form-group left">
+                    <label for="date" class="control-label col-sm-3">Date</label>
                     <div class="col-sm-9">
-                        <input type="text" name = "date" id="date" class="form-control input-md" autofocus>
+                        <div class="input-group date" data-provide="datepicker">
+                            <input type="text" name="date" class="form-control" placeholder="MM/DD/YYY">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-th"></span>
+                                </div>
+                        </div>
                     </div>
+                    <script type="text/javascript">
+                        $(function () {
+                            $('#date').datetimepicker();
+                        });
+                    </script>
+
+                <!--end date-->    
                 </div>
-                <div class="form-group">
-                    <label for="Time" class="control-label col-sm-3">Time</label>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-group right">
+                    <label for="time" class="control-label col-sm-3">Time</label>
                     <div class="col-sm-9">
                         <input type="text" name = "time" id="time" class="form-control input-md" autofocus>
                     </div>
                 </div>
+            </div>
+
+        </div>  
+
+
+
                 <div class="form-group">
                     <label for="Location" class="control-label col-sm-3">Location</label>
                     <div class="col-sm-9">
@@ -47,6 +82,14 @@
                         <option value="Volunteering">Volunteering</option>
                         <option value="Other">Other</option>
                   </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="link" class="control-label col-sm-3">Event Link (optional)</label>
+                    <div class="col-sm-9">
+                        <input type="text" name = "link" id="location" class="form-control input-md" autofocus>
+                    </div>
                 </div>
 
                 <br>
