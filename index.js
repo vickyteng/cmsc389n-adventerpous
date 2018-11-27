@@ -98,5 +98,17 @@ function main() {
     document.getElementById("submit").onclick = submitEvent;
 }
 
+app.get('/static/uploads/one.jpg', function(req, res) {
+    res.sendFile(path.join(__dirname + '/static/uploads/one.jpg'));
+});
+
+app.get('/static/uploads/two.jpg', function(req, res) {
+    res.sendFile(path.join(__dirname + '/static/uploads/two.jpg'));
+});
+
+app.get('/static/uploads/three.jpg', function(req, res) {
+    res.sendFile(path.join(__dirname + '/static/uploads/three.jpg'));
+});
+
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));

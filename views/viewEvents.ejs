@@ -11,7 +11,6 @@
       <h1>Events</h1>
       <br>
       <div id="eventList">
-          <!-- <ul class="list-unstyled"> -->
   <!-- need to parse thru events because it's JSON rn
       can access name by doing events[i].name, location: events[i].location .. etc-->
 
@@ -23,11 +22,12 @@
               <th>Location</th>
               <th>Time</th>
               <th>Event Type</th>
+              <th>Link</th>
+              <th>Image</th>
             </tr>
           </thead>
 
             <% for(var i=0; i < events.length; i++) {%>
-            <!-- <li>Event Name: <%= events[i].name  %></li> -->
               <tr>
                 <td><%- events[i].name.replace('\"', '').replace('\"', '') %></td>
                 <td><%- events[i].date.replace('\"', '').replace('\"', '')  %></td>
@@ -37,12 +37,25 @@
                     <%- events[i].eventType.replace(/\"/g, '').replace('[', '').replace(']', '') %>
                     <% } %>
                 </td>
+                <td>
+                  <% if (typeof(events[i].eventType) != 'undefined') {%>
+                  <%- events[i].link.replace('\"', '').replace('\"', '') %>
+                  <% } %>
+                </td>
+                <td>
+                  <% if (events[i].imagePath.slice(-7) === 'one.jpg') { %>
+                    <img id="lol" class="image" src='static/uploads/one.jpg' height="50" width="50"/>
+                  <% } else if (events[i].imagePath.slice(-7) === 'two.jpg') {%>
+                    <img id="lol" class="image" src='static/uploads/two.jpg' height="50" width="50"/>
+                  <% } else if (events[i].imagePath.slice(-7) === 'ree.jpg') { %>
+                    <img id="lol" class="image" src='static/uploads/three.jpg' height="50" width="50"/>
+                  <% } %>
+                </td>
 
               </tr>
             <% } %>
 
         </table>
-        <!-- </ul> -->
       </div>
       <br>
       <div class="container">
