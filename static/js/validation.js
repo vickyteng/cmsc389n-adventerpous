@@ -7,6 +7,7 @@ window.onsubmit=validateForm;
 /* If false the data will not be sent to the server */
 function validateForm() {
 	/* Retrieving the values */
+
     var name = document.getElementById("event").value;
     var clubName = document.getElementById("club").value;
     var date = document.getElementById("date").value;
@@ -15,16 +16,16 @@ function validateForm() {
     
 	/* Validating numeric values */    
 	var invalidMessages = "";
-    if (name == null) {
+    if (name == "") {
         invalidMessages += "Name cannot be blank\n";
     }
-    if (date == null) {
+    if (date == "") {
         invalidMessages += "Date cannot be blank\n";
     }
-    if (time == null) {
+    if (time == "") {
         invalidMessages += "Time cannot be blank\n";
     }
-    if (location == null) {
+    if (location == "") {
         invalidMessages += "Location cannot be blank\n";
     }
 
