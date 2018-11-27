@@ -109,3 +109,22 @@ section.hero h1 {
 section.hero .highlight {
   color: #EE82EE;
 }
+
+#eventssss {
+  margin: auto;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#tablee {
+  margin: auto;
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+td {
+  padding-left: 20px;
+  padding-right: 20px;
+}

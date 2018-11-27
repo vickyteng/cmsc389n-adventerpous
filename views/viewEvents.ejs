@@ -7,16 +7,38 @@
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 <body>
-    <h2>Events</h2>
-    <div id="eventList">
-        <ul class="list-unstyled">
-<!-- need to parse thru events because it's JSON rn
-    can access name by doing events[i].name, location: events[i].location .. etc-->
-      <% for(var i=0; i < events.length; i++) {%>
-          <li>Event Name: <%= events[i].name  %></li>
-          <% } %>
-      </ul>
+  <div id="eventssss">
+      <h1>Events</h1>
+      <br>
+      <div id="eventList">
+          <!-- <ul class="list-unstyled"> -->
+  <!-- need to parse thru events because it's JSON rn
+      can access name by doing events[i].name, location: events[i].location .. etc-->
+
+        <table id="tablee">
+          <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Time</th>
+            <th>Event Type</th>
+          </tr>
+
+            <% for(var i=0; i < events.length; i++) {%>
+            <!-- <li>Event Name: <%= events[i].name  %></li> -->
+              <tr>
+                <td><%- events[i].name.replace('\"', '').replace('\"', '') %></td>
+                <td><%- events[i].date.replace('\"', '').replace('\"', '')  %></td>
+                <td><%- events[i].location.replace('\"', '').replace('\"', '')  %></td>
+                <td><%- events[i].time.replace('\"', '').replace('\"', '')  %></td>
+                <td><%- events[i].eventType %></td>
+              </tr>
+            <% } %>
+
+        </table>
+        <!-- </ul> -->
       </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
