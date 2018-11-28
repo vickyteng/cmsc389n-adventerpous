@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 <body>
+
   <div id="eventssss">
       <h1>Events</h1>
       <br>
@@ -40,17 +41,21 @@
                     <% } %>
                 </td>
                 <td>
-                  <% if (typeof(events[i].eventType) != 'undefined') {%>
+                  <% if (typeof(events[i].link) != 'undefined' && events[i].link != '"http://"') {%>
                   <%- events[i].link.replace('\"', '').replace('\"', '') %>
                   <% } %>
                 </td>
                 <td>
                   <% if (events[i].imagePath.slice(-7) === 'one.jpg') { %>
-                    <img id="lol" class="image" src='static/uploads/one.jpg' height="50" width="50"/>
+                    <img id="lol1" class="image" src='uploads/one.jpg' height="50" width="50"/>
+                    <div id="myModal1" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01">
+                    </div>
                   <% } else if (events[i].imagePath.slice(-7) === 'two.jpg') {%>
-                    <img id="lol" class="image" src='static/uploads/two.jpg' height="50" width="50"/>
+                    <img id="lol2" class="image" src='uploads/two.jpg' height="50" width="50"/>
                   <% } else if (events[i].imagePath.slice(-7) === 'ree.jpg') { %>
-                    <img id="lol" class="image" src='static/uploads/three.jpg' height="50" width="50"/>
+                    <img id="lol3" class="image" src='uploads/three.jpg' height="50" width="50"/>
                   <% } %>
                 </td>
               </tr>
@@ -63,6 +68,21 @@
            <a class="button" href="./submitForm.html">Submit another event</a>
          </div>
     </div>
+
+    <script>
+    var modal1 = document.getElementById('myModal1');
+    var img1 = document.getElementById("lol1");
+    var modal1Img = document.getElementById("img01");
+    img1.onclick = function(){
+        modal1.style.display = "block";
+        modal1Img.src = this.src;
+    }
+
+    var span1 = document.getElementsByClassName("close")[0];
+    span1.onclick = function() {
+        modal1.style.display = "none";
+    }
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
