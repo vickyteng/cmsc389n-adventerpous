@@ -18,7 +18,6 @@ the title of the home page
 .bg{
   background-image: url("mckeldin.jpg");
   background-size: cover;
-  background-color: blue;
   background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
@@ -37,6 +36,9 @@ h3 {
   transition: ease.3s;
 }
 
+.container{
+  text-align: center;
+}
 
 div.titular{
     text-align: center;
