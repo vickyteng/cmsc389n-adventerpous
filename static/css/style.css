@@ -26,6 +26,10 @@ the title of the home page
     justify-content: center;
 }
 
+.content{
+  padding-top: 90px;
+}
+
 h3 {
   font-size: 70px;
   font-weight: 800;
