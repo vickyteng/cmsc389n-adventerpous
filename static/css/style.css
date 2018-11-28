@@ -5,6 +5,7 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
@@ -14,11 +15,16 @@ h1, h2, h3, h4, h5, h6, p {
 
 the title of the home page
 */
-.content{
+.bg{
   background-image: url("mckeldin.jpg");
-  background-size: 100%;
+  background-size: cover;
+  background-color: blue;
   background-repeat: no-repeat;
-  height: 100%;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 h3 {
@@ -26,19 +32,11 @@ h3 {
   font-weight: 800;
   text-align: center;
   vertical-align: middle;
-  padding-bottom: 20px;
-
   color: white;
-  position: absolute;
-  top:420px;
-  left: 540px;
+  padding: 10px;
   transition: ease.3s;
 }
 
-.container{
-  margin-top: 340px;
-  margin-left: 240px;
-}
 
 div.titular{
     text-align: center;
@@ -112,9 +110,6 @@ a.button:hover {
 /* -------------------------------------------------- */
 /* Hero */
 /* -------------------------------------------------- */
-div.container{
-  text-align: center;
-}
 
 section.hero {
   width: 100%;
